@@ -1,0 +1,16 @@
+﻿@model Piedone.Avatars.Models.AvatarsSettingsPart
+<fieldset>
+    <legend>@T("Avatars Settings")</legend>
+    <ol>
+        <li>
+            @Html.LabelFor(model => model.AllowedFileTypeWhitelist, T("Allowed file types to use as avatars (list of extensions separated by spaces)"))
+            @Html.TextBoxFor(model => model.AllowedFileTypeWhitelist, new { @class = "textMedium" })
+            @Html.ValidationMessageFor(model => model.AllowedFileTypeWhitelist)
+        </li>
+        <li>
+            @Html.LabelFor(model => model.MaxFileSize, T("Maximal size of avatar files (in bytes)"))
+            @Html.TextBoxFor(model => model.MaxFileSize, new { @class = "text" })
+            @Html.ValidationMessageFor(model => model.MaxFileSize)
+        </li>
+    </ol>
+</fieldset>

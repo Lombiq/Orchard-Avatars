@@ -6,7 +6,7 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3807D385-0FEB-4212-AE29-FC9EAD9E50C1}</ProjectGuid>
-    <ProjectTypeGuids>{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Piedone.Avatars</RootNamespace>
@@ -18,6 +18,7 @@
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
     <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,10 +75,36 @@
       <Project>{9916839C-39FC-4CEB-A5AF-89CA7E87119F}</Project>
       <Name>Orchard.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Users\Orchard.Users.csproj">
+      <Project>{79AED36E-ABD0-4747-93D3-8722B042454B}</Project>
+      <Name>Orchard.Users</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Piedone.ServiceValidation\Piedone.ServiceValidation.csproj">
+      <Project>{61F06E9B-E06D-492E-BA19-3BF64A9F341A}</Project>
+      <Name>Piedone.ServiceValidation</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\EditorTemplates\Parts\" />
+    <Folder Include="Views\Parts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Drivers\AvatarProfilePartDriver.cs" />
+    <Compile Include="Drivers\AvatarsSettingsPartDriver.cs" />
+    <Compile Include="Handlers\AvatarProfilePartHandler.cs" />
+    <Compile Include="Handlers\AvatarsSettingsPartHandler.cs" />
+    <Compile Include="Migrations.cs" />
+    <Compile Include="Models\AvatarProfilePart.cs" />
+    <Compile Include="Models\AvatarProfilePartRecord.cs" />
+    <Compile Include="Models\AvatarsSettingsPart.cs" />
+    <Compile Include="Models\AvatarsSettingsPartRecord.cs" />
+    <Compile Include="Services\AvatarsService.cs" />
+    <Compile Include="Services\IAvatarsService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Placement.info" />
+    <Content Include="Views\EditorTemplates\Parts.AvatarsSettings.SiteSettings.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -100,5 +127,23 @@
   <Target Name="AfterBuildCompiler" Condition="'$(MvcBuildViews)'=='true'">
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(ProjectDir)\..\$(ProjectName)" />
   </Target>
-  <ProjectExtensions />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12373</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

@@ -3,8 +3,11 @@ AntiForgery: enabled
 Author: Piedone
 Website: http://orchardavatars.codeplex.com
 Version: 1.0
-OrchardVersion: 1.0
-Description: Description for the module
+OrchardVersion: 1.3
+Description: Avatar images can be added to content types and users can upload avatars
 Features:
     Piedone.Avatars:
-        Description: Description for feature Piedone.Avatars.
+		Name: Avatars
+        Description: Avatar images can be added to content types and users can upload avatars
+		Category: Social
+		Dependencies: Orchard.Users, Piedone.ServiceValidation

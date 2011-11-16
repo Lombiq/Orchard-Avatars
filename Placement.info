@@ -1,0 +1,7 @@
+﻿<Placement>
+  <!--Settings-->
+  <Place Parts_AvatarsSettings_SiteSettings="Content:10"/>
+
+  <!--<Place Parts_FacebookConnect_Edit="Content:7.5"/>
+  <Place Parts_FacebookConnect="Content:10"/>-->
+</Placement>
