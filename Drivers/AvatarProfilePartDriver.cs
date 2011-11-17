@@ -33,7 +33,7 @@ namespace Piedone.Avatars.Drivers
                 () => shapeHelper.Parts_Avatar(
                                                 HasAvatar: part.HasAvatar,
                                                 ImageUrl: part.ImageUrl,
-                                                UserName: part.As<UserPart>().UserName //part.As<CommonPart>().Owner.UserName
+                                                UserName: part.As<UserPart>().UserName
                                                 ));
         }
 

@@ -2,6 +2,8 @@ using Orchard.Data.Migration;
 using Orchard.Environment.Extensions;
 using Piedone.Avatars.Models;
 using Piedone.Avatars.Services;
+using Orchard.ContentManagement.MetaData;
+using Orchard.Core.Contents.Extensions;
 
 namespace Piedone.Avatars.Migrations
 {
@@ -37,8 +39,8 @@ namespace Piedone.Avatars.Migrations
         public int UpdateFrom1()
         {
 
-            //ContentDefinitionManager.AlterPartDefinition(typeof(AvatarProfilePart).Name,
-            //    builder => builder.Attachable());
+            ContentDefinitionManager.AlterPartDefinition(typeof(AvatarPart).Name,
+                builder => builder.Attachable());
 
 
             return 2;

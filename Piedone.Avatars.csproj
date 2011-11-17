@@ -90,10 +90,13 @@
   <ItemGroup>
     <Compile Include="Drivers\AvatarProfilePartDriver.cs" />
     <Compile Include="Drivers\AvatarsSettingsPartDriver.cs" />
+    <Compile Include="Drivers\AvatarPartDriver.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Handlers\AvatarProfilePartHandler.cs" />
     <Compile Include="Handlers\AvatarsSettingsPartHandler.cs" />
+    <Compile Include="Handlers\AvatarPartHandler.cs" />
     <Compile Include="Migrations.cs" />
+    <Compile Include="Models\AvatarPart.cs" />
     <Compile Include="Models\AvatarProfilePart.cs" />
     <Compile Include="Models\AvatarProfilePartRecord.cs" />
     <Compile Include="Models\AvatarsSettingsPart.cs" />
