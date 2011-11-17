@@ -14,7 +14,8 @@ namespace Piedone.Avatars.Services
 {
     public enum AvatarsServiceValidationKey
     {
-        FileTooLarge
+        FileTooLarge,
+        NotAllowedFileType
     }
 
     [OrchardFeature("Piedone.Avatars")]
@@ -72,9 +73,14 @@ namespace Piedone.Avatars.Services
                 return false;
             }
 
-            // Extension check?
-
             var filePath = GetFilePath(id, extension);
+
+            if (!IsFileAllowed(filePath))
+            {
+                ValidationDictionary.AddError(AvatarsServiceValidationKey.NotAllowedFileType.ToString(), "This file type is not allowed as an avatar.");
+
+                return false;
+            }
 
             // This is the way to overwrite a file... We can't check its existence yet with IStorageProvider, but soon there will be such a method.
             try
