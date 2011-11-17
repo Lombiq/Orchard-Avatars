@@ -2,6 +2,7 @@
   <!--Settings-->
   <Place Parts_AvatarsSettings_SiteSettings="Content:10"/>
 
-  <!--<Place Parts_FacebookConnect_Edit="Content:7.5"/>
-  <Place Parts_FacebookConnect="Content:10"/>-->
+  <!--Profile-->
+  <Place Parts_AvatarProfile_Edit="Content:1"/>
+  <Place Parts_Avatar="Content:1"/>
 </Placement>

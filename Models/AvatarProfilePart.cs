@@ -10,7 +10,7 @@ namespace Piedone.Avatars.Models
     {
         public bool HasAvatar
         {
-            get { return String.IsNullOrEmpty(FileExtension); }
+            get { return !String.IsNullOrEmpty(FileExtension); }
         }
 
         public string FileExtension

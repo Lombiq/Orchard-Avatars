@@ -1,0 +1,27 @@
+﻿@model Piedone.Avatars.Models.AvatarProfilePart
+           
+@{
+	Script.Require("jQuery").AtFoot();
+}
+
+<fieldset>
+    <legend>@T("Avatar")</legend>
+    <ol>
+        <li>
+            @Html.Label("Upload", T("Upload an avatar image").ToString())
+            <input type="file" name="Avatars_FileUpload" id="Avatars_FileUpload" value="@T("Browse")" />
+        </li>
+    </ol>
+</fieldset>
+
+@*Trick taken from Contrib.FileField*@
+@using (Script.Foot())
+{
+    <script type="text/javascript">
+    //<![CDATA[
+        $($("#Avatars_FileUpload")[0].form)
+		    .attr('enctype', 'multipart/form-data')
+		    .attr('encoding', 'multipart/form-data'); // ie issue
+    //]]>
+    </script>
+}

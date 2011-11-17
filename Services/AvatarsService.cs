@@ -9,6 +9,7 @@ using Orchard.Localization;
 using Orchard.Settings;
 using Piedone.Avatars.Models;
 using Piedone.ServiceValidation.Dictionaries;
+using Piedone.Avatars.Extensions;
 
 namespace Piedone.Avatars.Services
 {
@@ -61,6 +62,7 @@ namespace Piedone.Avatars.Services
 
         public bool SaveAvatarFile(int id, Stream stream, string extension)
         {
+            extension = extension.StripExtension();
             var settings = GetSettings();
             
             if (stream.Length > settings.MaxFileSize)
@@ -103,7 +105,7 @@ namespace Piedone.Avatars.Services
         public void DeleteAvatarFile(int id)
         {
             _contentManager.Get<AvatarProfilePart>(id).FileExtension = "";
-            // Maybe to be used in the Handler in OnRemoved(). But since removing is not deleting, this isn't required yet.
+            // Maybe to be used in the Handler in OnRemoved(). But since removing is not hard deleting, this isn't required yet.
             _storageProvider.DeleteFile(GetFilePath(id, _contentManager.Get<AvatarProfilePart>(id).FileExtension));
         }
 
@@ -123,7 +125,7 @@ namespace Piedone.Avatars.Services
 
             // Must be in the whitelist
             if (settings == null ||
-                !settings.AllowedFileTypeWhitelist.ToUpperInvariant().Split(' ').Contains(Path.GetExtension(fileName).Trim().TrimStart('.').ToUpperInvariant()))
+                !settings.AllowedFileTypeWhitelist.ToLowerInvariant().Split(' ').Contains(Path.GetExtension(fileName).StripExtension()))
             {
                 return false;
             }
@@ -142,6 +144,11 @@ namespace Piedone.Avatars.Services
         private string GetFilePath(int id, string extension)
         {
             return AvatarFolderPath + "/" + id + "." + extension;
+        }
+
+        private string StripExtension(string extension)
+        {
+            return extension.Trim().TrimStart('.').ToLowerInvariant();
         }
 
         private AvatarsSettingsPart GetSettings()

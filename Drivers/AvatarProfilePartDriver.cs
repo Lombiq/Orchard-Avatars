@@ -2,31 +2,47 @@
 using Orchard.ContentManagement.Drivers;
 using Orchard.Environment.Extensions;
 using Piedone.Avatars.Models;
+using Piedone.Avatars.Services;
+using Orchard.Core.Common.Models;
+using Orchard.Users.Models;
+using System.Web.Mvc;
+using Piedone.ServiceValidation.Helpers;
 
 namespace Piedone.Avatars.Drivers
 {
     [OrchardFeature("Piedone.Avatars")]
     public class AvatarProfilePartDriver : ContentPartDriver<AvatarProfilePart>
     {
+        private readonly IAvatarsService _avatarsService;
+
         protected override string Prefix
         {
             get { return "Avatars"; }
         }
 
+        public AvatarProfilePartDriver(IAvatarsService avatarsService)
+        {
+            _avatarsService = avatarsService;
+        }
+
         protected override DriverResult Display(AvatarProfilePart part, string displayType, dynamic shapeHelper)
         {
-            return ContentShape("Parts_FacebookCommentsBox",
-                () => shapeHelper.Parts_FacebookCommentsBox(
-                                                //NumberOfPosts: part.NumberOfPosts
+            if (!part.HasAvatar) return null;
+
+            return ContentShape("Parts_Avatar",
+                () => shapeHelper.Parts_Avatar(
+                                                HasAvatar: part.HasAvatar,
+                                                ImageUrl: part.ImageUrl,
+                                                UserName: part.As<UserPart>().UserName //part.As<CommonPart>().Owner.UserName
                                                 ));
         }
 
         // GET
         protected override DriverResult Editor(AvatarProfilePart part, dynamic shapeHelper)
         {
-            return ContentShape("Parts_FacebookCommentsBox_Edit",
+            return ContentShape("Parts_AvatarProfile_Edit",
                 () => shapeHelper.EditorTemplate(
-                    TemplateName: "Parts/FacebookCommentsBox",
+                    TemplateName: "Parts/AvatarProfile",
                     Model: part,
                     Prefix: Prefix));
         }
@@ -35,6 +51,14 @@ namespace Piedone.Avatars.Drivers
         protected override DriverResult Editor(AvatarProfilePart part, IUpdateModel updater, dynamic shapeHelper)
         {
             updater.TryUpdateModel(part, Prefix, null, null);
+
+            var postedFile = ((Controller)updater).Request.Files["Avatars_FileUpload"];
+            if (postedFile != null)
+            {
+                _avatarsService.SaveAvatarFile(part, postedFile);
+                ValidationDictionaryTranscriber.TranscribeValidationDictionaryErrorsToUpdater(_avatarsService.ValidationDictionary, updater);
+            }
+
             return Editor(part, shapeHelper);
         }
     }

@@ -34,7 +34,7 @@ namespace Piedone.Avatars.Services
         /// </summary>
         /// <param name="id">Id of the content item (user) to attach the file to</param>
         /// <param name="stream">The content of the file</param>
-        /// <param name="extension">The extension of the file, without the dot</param>
+        /// <param name="extension">The extension of the file</param>
         /// <returns>True or false indicating success or failure</returns>
         bool SaveAvatarFile(int id, System.IO.Stream stream, string extension);
 
