@@ -12,6 +12,11 @@ using Piedone.ServiceValidation.Dictionaries;
 
 namespace Piedone.Avatars.Services
 {
+    public enum AvatarsServiceValidationKey
+    {
+        FileTooLarge
+    }
+
     [OrchardFeature("Piedone.Avatars")]
     public class AvatarsService : IAvatarsService
     {
@@ -59,7 +64,7 @@ namespace Piedone.Avatars.Services
             
             if (stream.Length > settings.MaxFileSize)
             {
-                ValidationDictionary.AddError("fileTooLarge", "The file was too large for an avatar ({0}KB), maximum file size is {1}KB");
+                ValidationDictionary.AddError(AvatarsServiceValidationKey.FileTooLarge.ToString(), "The file was too large for an avatar ({0}KB), maximum file size is {1}KB");
                 //ValidationDictionary.AddError("fileTooLarge", T("The file was too large for an avatar ({0}KB), maximum file size is {1}KB", 
                 //    Math.Round((float)(stream.Length / 1024)),
                 //    Math.Round((float)(settings.MaxFileSize / 1024))));
@@ -68,7 +73,7 @@ namespace Piedone.Avatars.Services
             }
 
             var filePath = GetFilePath(id, extension);
-            // This is the way to overwrite a file... We can't check its existence yet.
+            // This is the way to overwrite a file... We can't check its existence yet with IStorageProvider, but soon there will be such a method.
             try
             {
                 _storageProvider.DeleteFile(filePath);
