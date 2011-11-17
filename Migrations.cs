@@ -30,6 +30,10 @@ namespace Piedone.Avatars.Migrations
                 .Column<string>("FileExtension")
             );
 
+            ContentDefinitionManager.AlterPartDefinition(typeof(AvatarPart).Name,
+                builder => builder.Attachable());
+
+
             _avatarsService.CreateAvatarsFolder();
 
 
@@ -38,9 +42,6 @@ namespace Piedone.Avatars.Migrations
 
         public int UpdateFrom1()
         {
-
-            ContentDefinitionManager.AlterPartDefinition(typeof(AvatarPart).Name,
-                builder => builder.Attachable());
 
 
             return 2;
