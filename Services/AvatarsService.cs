@@ -72,7 +72,10 @@ namespace Piedone.Avatars.Services
                 return false;
             }
 
+            // Extension check?
+
             var filePath = GetFilePath(id, extension);
+
             // This is the way to overwrite a file... We can't check its existence yet with IStorageProvider, but soon there will be such a method.
             try
             {
@@ -81,6 +84,7 @@ namespace Piedone.Avatars.Services
             catch (Exception)
             {
             }
+
             _storageProvider.SaveStream(filePath, stream);
 
             var avatar = _contentManager.Get<AvatarProfilePart>(id);
@@ -92,6 +96,7 @@ namespace Piedone.Avatars.Services
 
         public void DeleteAvatarFile(int id)
         {
+            _contentManager.Get<AvatarProfilePart>(id).FileExtension = "";
             // Maybe to be used in the Handler in OnRemoved(). But since removing is not deleting, this isn't required yet.
             _storageProvider.DeleteFile(GetFilePath(id, _contentManager.Get<AvatarProfilePart>(id).FileExtension));
         }
