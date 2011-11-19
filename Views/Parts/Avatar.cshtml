@@ -1,4 +1,4 @@
 ﻿@if ((bool)Model.HasAvatar)
 {
-    @Html.Image((string)Model.ImageUrl, T("{0}'s avatar", (string)Model.UserName).ToString(), new Dictionary<string, object> { { "class", "avatar-image" } })
+    @Html.Image((string)Model.ImageUrl, T("{0}'s avatar", (string)Model.UserName).ToString(), new Dictionary<string, object> { { "class", "piedone-avatars avatar" } })
 }

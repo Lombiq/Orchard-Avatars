@@ -1,19 +1,23 @@
 ﻿@model Piedone.Avatars.Models.AvatarProfilePart
-           
 @{
-	Script.Require("jQuery").AtFoot();
+    Script.Require("jQuery").AtFoot();
 }
-
 <fieldset>
     <legend>@T("Avatar")</legend>
     <ol>
         <li>
-            @Html.Label("Upload", T("Upload an avatar image").ToString())
-            <input type="file" name="Avatars_FileUpload" id="Avatars_FileUpload" value="@T("Browse")" />
+            <div class="piedone-avatars profile-editor">
+                @if (Model.HasAvatar)
+                {
+                    <span>@T("Current avatar")</span>
+                    @Html.Image(Model.ImageUrl, T("Your avatar image").ToString(), new Dictionary<string, object> { { "class", "piedone-avatars own-image" } });
+                }
+            </div>
+            @Html.Label("FileUpload", T("Upload a new avatar image").ToString())
+            <input type="file" name="Avatars_FileUpload" id="Avatars_FileUpload">
         </li>
     </ol>
 </fieldset>
-
 @*Trick taken from Contrib.FileField*@
 @using (Script.Foot())
 {
