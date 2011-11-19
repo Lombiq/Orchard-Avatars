@@ -1,7 +1,7 @@
-﻿using Orchard.ContentManagement;
+﻿using System;
+using Orchard.ContentManagement;
 using Orchard.Core.Common.Utilities;
 using Orchard.Environment.Extensions;
-using System;
 
 namespace Piedone.Avatars.Models
 {

@@ -7,18 +7,12 @@ using Orchard.Environment.Extensions;
 using Orchard.FileSystems.Media;
 using Orchard.Localization;
 using Orchard.Settings;
-using Piedone.Avatars.Models;
-using Piedone.ServiceValidation.Dictionaries;
 using Piedone.Avatars.Extensions;
+using Piedone.Avatars.Models;
+using Piedone.ServiceValidation.ValidationDictionaries;
 
 namespace Piedone.Avatars.Services
 {
-    public enum AvatarsServiceValidationKey
-    {
-        FileTooLarge,
-        NotAllowedFileType
-    }
-
     [OrchardFeature("Piedone.Avatars")]
     public class AvatarsService : IAvatarsService
     {
@@ -28,15 +22,18 @@ namespace Piedone.Avatars.Services
 
         private const string AvatarFolderPath = "Avatars";
 
-        public IServiceValidationDictionary ValidationDictionary { get; private set; }
+        public IServiceValidationDictionary<AvatarsServiceValidationKey> ValidationDictionary { get; private set; }
         public Localizer T { get; set; }
 
         public AvatarsService(
             IStorageProvider storageProvider,
             IContentManager contentManager,
-            ISiteService siteService,
-            IServiceValidationDictionary validationDictionary)
+            ISiteService siteService/*,
+            IServiceValidationDictionary<AvatarsServiceValidationKey> validationDictionary*/)
         {
+            // This is necessary as generic dependencies are currently not resolved, see issue: http://orchard.codeplex.com/workitem/18141
+            var validationDictionary = new ServiceValidationDictionary<AvatarsServiceValidationKey>();
+
             _storageProvider = storageProvider;
             _contentManager = contentManager;
             _siteService = siteService;
@@ -67,7 +64,7 @@ namespace Piedone.Avatars.Services
             
             if (stream.Length > settings.MaxFileSize)
             {
-                ValidationDictionary.AddError(AvatarsServiceValidationKey.FileTooLarge.ToString(), "The file was too large for an avatar ({0}KB), maximum file size is {1}KB");
+                ValidationDictionary.AddError(AvatarsServiceValidationKey.FileTooLarge, "The file was too large for an avatar ({0}KB), maximum file size is {1}KB");
                 //ValidationDictionary.AddError("fileTooLarge", T("The file was too large for an avatar ({0}KB), maximum file size is {1}KB", 
                 //    Math.Round((float)(stream.Length / 1024)),
                 //    Math.Round((float)(settings.MaxFileSize / 1024))));
@@ -79,7 +76,7 @@ namespace Piedone.Avatars.Services
 
             if (!IsFileAllowed(filePath))
             {
-                ValidationDictionary.AddError(AvatarsServiceValidationKey.NotAllowedFileType.ToString(), "This file type is not allowed as an avatar.");
+                ValidationDictionary.AddError(AvatarsServiceValidationKey.NotAllowedFileType, "This file type is not allowed as an avatar.");
 
                 return false;
             }

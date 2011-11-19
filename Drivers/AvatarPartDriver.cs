@@ -1,12 +1,8 @@
 ﻿using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
+using Orchard.Core.Common.Models;
 using Orchard.Environment.Extensions;
 using Piedone.Avatars.Models;
-using Piedone.Avatars.Services;
-using Orchard.Core.Common.Models;
-using Orchard.Users.Models;
-using System.Web.Mvc;
-using Piedone.ServiceValidation.Helpers;
 
 namespace Piedone.Avatars.Drivers
 {

@@ -1,10 +1,9 @@
-﻿using Orchard.ContentManagement.Handlers;
-using Orchard.Data;
+﻿using Orchard.ContentManagement;
+using Orchard.ContentManagement.Handlers;
+using Orchard.Core.Common.Models;
 using Orchard.Environment.Extensions;
 using Piedone.Avatars.Models;
 using Piedone.Avatars.Services;
-using Orchard.ContentManagement;
-using Orchard.Core.Common.Models;
 
 namespace Piedone.Avatars.Handlers
 {

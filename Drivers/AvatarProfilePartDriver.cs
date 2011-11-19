@@ -1,12 +1,11 @@
-﻿using Orchard.ContentManagement;
+﻿using System.Web.Mvc;
+using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
 using Orchard.Environment.Extensions;
+using Orchard.Users.Models;
 using Piedone.Avatars.Models;
 using Piedone.Avatars.Services;
-using Orchard.Core.Common.Models;
-using Orchard.Users.Models;
-using System.Web.Mvc;
-using Piedone.ServiceValidation.Helpers;
+using Piedone.ServiceValidation.Extensions;
 
 namespace Piedone.Avatars.Drivers
 {
@@ -56,7 +55,7 @@ namespace Piedone.Avatars.Drivers
             if (postedFile != null)
             {
                 _avatarsService.SaveAvatarFile(part, postedFile);
-                ValidationDictionaryTranscriber.TranscribeValidationDictionaryErrorsToUpdater(_avatarsService.ValidationDictionary, updater);
+                updater.TranscribeValidationDictionaryErrors<AvatarsServiceValidationKey>(_avatarsService.ValidationDictionary);
             }
 
             return Editor(part, shapeHelper);

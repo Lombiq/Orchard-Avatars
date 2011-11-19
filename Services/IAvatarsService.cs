@@ -3,7 +3,16 @@ using Piedone.ServiceValidation.ServiceInterfaces;
 
 namespace Piedone.Avatars.Services
 {
-    public interface IAvatarsService : IDependency, IValidatingService
+    /// <summary>
+    /// Use these values to check the ValidationDictionary against errors
+    /// </summary>
+    public enum AvatarsServiceValidationKey
+    {
+        FileTooLarge,
+        NotAllowedFileType
+    }
+
+    public interface IAvatarsService : IDependency, IValidatingService<AvatarsServiceValidationKey>
     {
         /// <summary>
         /// Creates the media folder where avatars are stored

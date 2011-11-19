@@ -1,9 +1,9 @@
+using Orchard.ContentManagement.MetaData;
+using Orchard.Core.Contents.Extensions;
 using Orchard.Data.Migration;
 using Orchard.Environment.Extensions;
 using Piedone.Avatars.Models;
 using Piedone.Avatars.Services;
-using Orchard.ContentManagement.MetaData;
-using Orchard.Core.Contents.Extensions;
 
 namespace Piedone.Avatars.Migrations
 {
