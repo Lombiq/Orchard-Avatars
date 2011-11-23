@@ -5,7 +5,7 @@ using Orchard.Environment.Extensions;
 using Orchard.Users.Models;
 using Piedone.Avatars.Models;
 using Piedone.Avatars.Services;
-using Piedone.ServiceValidation.Extensions;
+using Piedone.HelpfulLibraries.ServiceValidation.Extensions;
 
 namespace Piedone.Avatars.Drivers
 {

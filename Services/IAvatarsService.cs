@@ -1,5 +1,5 @@
 ﻿using Orchard;
-using Piedone.ServiceValidation.ServiceInterfaces;
+using Piedone.HelpfulLibraries.ServiceValidation.ServiceInterfaces;
 
 namespace Piedone.Avatars.Services
 {
