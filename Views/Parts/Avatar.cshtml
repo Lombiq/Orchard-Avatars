@@ -1,4 +1,11 @@
-﻿@if ((bool)Model.HasAvatar)
+﻿@{
+    Style.Require("Avatars");
+}
+@if ((bool)Model.HasAvatar)
 {
-    @Html.Image((string)Model.ImageUrl, T("{0}'s avatar", (string)Model.UserName).ToString(), new Dictionary<string, object> { { "class", "piedone-avatars avatar" } })
+    <div class="piedone-avatars avatarbox">
+        <a href="@Url.Content("~/profile/" + (string)Model.UserName)">
+            @Html.Image((string)Model.ImageUrl, T("{0}'s avatar", (string)Model.UserName).ToString(), new Dictionary<string, object> { { "class", "piedone-avatars avatar" } })
+        </a>
+    </div>
 }
