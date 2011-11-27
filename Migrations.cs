@@ -19,15 +19,17 @@ namespace Piedone.Avatars.Migrations
 
         public int Create()
         {
-            SchemaBuilder.CreateTable(typeof(AvatarsSettingsPartRecord).Name, table => table
-                .ContentPartRecord()
-                .Column<string>("AllowedFileTypeWhitelist")
-                .Column<int>("MaxFileSize")
+            SchemaBuilder.CreateTable(typeof(AvatarsSettingsPartRecord).Name, 
+                table => table
+                    .ContentPartRecord()
+                    .Column<string>("AllowedFileTypeWhitelist")
+                    .Column<int>("MaxFileSize")
             );
 
-            SchemaBuilder.CreateTable(typeof(AvatarProfilePartRecord).Name, table => table
-                .ContentPartRecord()
-                .Column<string>("FileExtension")
+            SchemaBuilder.CreateTable(typeof(AvatarProfilePartRecord).Name, 
+                table => table
+                    .ContentPartRecord()
+                    .Column<string>("FileExtension")
             );
 
             ContentDefinitionManager.AlterPartDefinition(typeof(AvatarPart).Name,
@@ -40,11 +42,11 @@ namespace Piedone.Avatars.Migrations
             return 1;
         }
 
-        public int UpdateFrom1()
-        {
+        //public int UpdateFrom1()
+        //{
 
 
-            return 2;
-        }
+        //    return 2;
+        //}
     }
 }
