@@ -4,5 +4,5 @@
 
   <!--Profile-->
   <Place Parts_AvatarProfile_Edit="Content:1"/>
-  <Place Parts_Avatar="Content:1"/>
+  <Place Parts_Avatar="Meta:1"/>
 </Placement>

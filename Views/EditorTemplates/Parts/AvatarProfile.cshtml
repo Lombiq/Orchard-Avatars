@@ -1,20 +1,22 @@
 ﻿@model Piedone.Avatars.Models.AvatarProfilePart
 @{
+    Style.Require("Avatars");
     Script.Require("jQuery").AtFoot();
 }
-<fieldset>
+<fieldset class="piedone-avatars profile-editor avatar-editor">
     <legend>@T("Avatar")</legend>
     <ol>
         <li>
-            <div class="piedone-avatars profile-editor">
+            <div class="piedone-avatars profile-editor avatarbox">
                 @if (Model.HasAvatar)
                 {
                     <span>@T("Current avatar")</span>
-                    @Html.Image(Model.ImageUrl, T("Your avatar image").ToString(), new Dictionary<string, object> { { "class", "piedone-avatars own-image" } });
+                    @Html.Image(Model.ImageUrl, T("Your avatar image").ToString(), new Dictionary<string, object> { { "class", "piedone-avatars own avatar" } });
                 }
             </div>
             @Html.Label("FileUpload", T("Upload a new avatar image").ToString())
             <input type="file" name="Avatars_FileUpload" id="Avatars_FileUpload">
+            <span class="hint">@T("If you can't see the new avatar picture after uploading, just refresh the page in your browser.")</span>
         </li>
     </ol>
 </fieldset>
