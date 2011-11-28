@@ -107,7 +107,9 @@
     <Compile Include="Services\IAvatarsService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Placement.info" />
+    <None Include="Placement.info">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Views\EditorTemplates\Parts.AvatarsSettings.SiteSettings.cshtml" />
     <Content Include="Views\Parts\Avatar.cshtml" />
     <Content Include="Views\EditorTemplates\Parts\AvatarProfile.cshtml" />
