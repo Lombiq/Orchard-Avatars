@@ -28,12 +28,9 @@ namespace Piedone.Avatars.Services
         public AvatarsService(
             IStorageProvider storageProvider,
             IContentManager contentManager,
-            ISiteService siteService/*,
-            IServiceValidationDictionary<AvatarsServiceValidationKey> validationDictionary*/)
+            ISiteService siteService,
+            IServiceValidationDictionary<AvatarsServiceValidationKey> validationDictionary)
         {
-            // This is necessary as generic dependencies are currently not resolved, see issue: http://orchard.codeplex.com/workitem/18141
-            var validationDictionary = new ServiceValidationDictionary<AvatarsServiceValidationKey>();
-
             _storageProvider = storageProvider;
             _contentManager = contentManager;
             _siteService = siteService;
