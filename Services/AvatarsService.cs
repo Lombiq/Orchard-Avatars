@@ -146,7 +146,7 @@ namespace Piedone.Avatars.Services
 
         private AvatarsSettingsPart GetSettings()
         {
-            return _siteService.GetSiteSettings().As<AvatarsSettingsPart>(); // WorkContext is null if run in a background thread!
+            return _siteService.GetSiteSettings().As<AvatarsSettingsPart>();
         }
     }
 }
