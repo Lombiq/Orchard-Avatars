@@ -8,7 +8,12 @@
         width: 150px;
     }
     
-piedone-avatars.profile-editor.avatarbox span
+.piedone-avatars.profile-editor.avatarbox span
 {
     vertical-align: top;
+}
+
+.piedone-avatars.profile-editor.avatar-editor .hint
+{
+    display: block;
 }
