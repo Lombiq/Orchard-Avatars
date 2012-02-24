@@ -44,16 +44,6 @@ namespace Piedone.Avatars.Services
             _storageProvider.TryCreateFolder(AvatarFolderPath);
         }
 
-        public bool SaveAvatarFile(AvatarProfilePart avatar, HttpPostedFileBase postedFile)
-        {
-            return SaveAvatarFile(avatar.Id, postedFile);
-        }
-
-        public bool SaveAvatarFile(int id, HttpPostedFileBase postedFile)
-        {
-            return SaveAvatarFile(id, postedFile.InputStream, Path.GetExtension(postedFile.FileName));
-        }
-
         public bool SaveAvatarFile(int id, Stream stream, string extension)
         {
             extension = extension.StripExtension();
@@ -100,16 +90,6 @@ namespace Piedone.Avatars.Services
             _contentManager.Get<AvatarProfilePart>(id).FileExtension = "";
             // Maybe to be used in the Handler in OnRemoved(). But since removing is not hard deleting, this isn't required yet.
             _storageProvider.DeleteFile(GetFilePath(id, _contentManager.Get<AvatarProfilePart>(id).FileExtension));
-        }
-
-        public bool IsFileAllowed(HttpPostedFileBase postedFile)
-        {
-            if (postedFile == null)
-            {
-                return false;
-            }
-
-            return IsFileAllowed(postedFile.FileName);
         }
 
         public bool IsFileAllowed(string fileName)
