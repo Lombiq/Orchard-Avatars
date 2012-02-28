@@ -2,7 +2,7 @@ Name: Avatars
 AntiForgery: enabled
 Author: Piedone
 Website: http://orchardavatars.codeplex.com
-Version: 0.8
+Version: 0.8.1
 OrchardVersion: 1.3
 Description: Avatar images can be added to content types and users can upload avatars
 Features:
