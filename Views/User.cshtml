@@ -16,6 +16,6 @@
     }
     else
     {
-        <span class="user-actions">@Html.ActionLink(T("Sign In").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = (Request.QueryString["ReturnUrl"] ?? Request.RawUrl) })</span>
+        <span class="user-actions">@Html.ActionLink(T("Sign In").ToString(), "LogOn", new { Controller = "Account", Area = "Orchard.Users", ReturnUrl = (Context.Request.QueryString["ReturnUrl"] ?? Context.Request.RawUrl) })</span>
     }
 </div>
