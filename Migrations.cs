@@ -32,6 +32,11 @@ namespace Piedone.Avatars.Migrations
                     .Column<string>("FileExtension")
             );
 
+            ContentDefinitionManager.AlterTypeDefinition("User",
+                cfg => cfg
+                    .WithPart(typeof(AvatarProfilePart).Name)
+                );
+
             ContentDefinitionManager.AlterPartDefinition(typeof(AvatarPart).Name,
                 builder => builder.Attachable());
 
@@ -42,11 +47,14 @@ namespace Piedone.Avatars.Migrations
             return 1;
         }
 
-        //public int UpdateFrom1()
-        //{
+        public int UpdateFrom1()
+        {
+            ContentDefinitionManager.AlterTypeDefinition("User",
+                cfg => cfg
+                    .WithPart(typeof(AvatarProfilePart).Name)
+                );
 
-
-        //    return 2;
-        //}
+            return 2;
+        }
     }
 }

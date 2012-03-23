@@ -14,7 +14,6 @@ namespace Piedone.Avatars.Handlers
             IRepository<AvatarProfilePartRecord> repository,
             IAvatarsService avatarsService)
         {
-            Filters.Add(new ActivatingFilter<AvatarProfilePart>("User"));
             Filters.Add(StorageFilter.For(repository));
 
             _avatarsService = avatarsService;
