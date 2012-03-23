@@ -1,0 +1,12 @@
+﻿@{
+    Style.Require("Avatars");
+    var avatar = (Piedone.Avatars.Models.AvatarProfilePart)Model.ContentPart;
+}
+@if (avatar.HasAvatar)
+{
+    <div class="piedone-avatars avatarbox profile">
+        <a href="@Url.Content("~/profile/" + (string)Model.UserName)">
+            @Html.Image(avatar.ImageUrl, T("{0}'s avatar", (string)Model.UserName).ToString(), new { @class = "piedone-avatars avatar" })
+        </a>
+    </div>
+}

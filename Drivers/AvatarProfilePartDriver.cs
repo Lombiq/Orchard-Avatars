@@ -29,12 +29,8 @@ namespace Piedone.Avatars.Drivers
         {
             if (!part.HasAvatar) return null;
 
-            return ContentShape("Parts_Avatar",
-                () => shapeHelper.Parts_Avatar(
-                                                HasAvatar: part.HasAvatar,
-                                                ImageUrl: part.ImageUrl,
-                                                UserName: part.As<UserPart>().UserName
-                                                ));
+            return ContentShape("Parts_AvatarProfile",
+                () => shapeHelper.Parts_AvatarProfile(UserName: part.As<UserPart>().UserName));
         }
 
         // GET

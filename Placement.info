@@ -2,8 +2,11 @@
   <!--Settings-->
   <Place Parts_AvatarsSettings_SiteSettings="Content:10"/>
 
-  <!--Profile-->
+  <!--AvatarProfilePart-->
   <Place Parts_AvatarProfile_Edit="Content:1"/>
+  <Place Parts_AvatarProfile="Content:1"/>
+  
+  <!--AvatarPart-->
   <Match DisplayType="Detail">
     <Place Parts_Avatar="Meta:1"/>
   </Match>
