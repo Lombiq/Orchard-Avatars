@@ -112,10 +112,10 @@
     </Content>
     <Content Include="Views\EditorTemplates\Parts.AvatarsSettings.SiteSettings.cshtml" />
     <Content Include="Views\Parts\Avatar.cshtml" />
-    <Content Include="Views\EditorTemplates\Parts\AvatarProfile.cshtml" />
+    <Content Include="Views\EditorTemplates\Parts.AvatarProfile.cshtml" />
     <Content Include="Views\User.cshtml" />
-    <Content Include="Views\Parts.Common.Metadata.cshtml" />
-    <Content Include="Views\Parts.Common.Metadata.Summary.cshtml" />
+    <Content Include="Views\Parts\Common.Metadata.cshtml" />
+    <Content Include="Views\Parts\Common.Metadata.Summary.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
