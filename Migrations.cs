@@ -44,7 +44,7 @@ namespace Piedone.Avatars.Migrations
             _avatarsService.CreateAvatarsFolder();
 
 
-            return 1;
+            return 2;
         }
 
         public int UpdateFrom1()
