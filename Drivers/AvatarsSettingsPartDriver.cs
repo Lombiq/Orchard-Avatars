@@ -2,6 +2,7 @@
 using Orchard.ContentManagement.Drivers;
 using Orchard.Environment.Extensions;
 using Piedone.Avatars.Models;
+using Orchard.ContentManagement.Handlers;
 
 namespace Piedone.Avatars.Drivers
 {
@@ -31,6 +32,18 @@ namespace Piedone.Avatars.Drivers
         {
             updater.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
+        }
+
+        protected override void Exporting(AvatarsSettingsPart part, ExportContentContext context)
+        {
+            context.Element(part.PartDefinition.Name).SetAttributeValue("AllowedFileTypeWhitelist", part.AllowedFileTypeWhitelist);
+            context.Element(part.PartDefinition.Name).SetAttributeValue("MaxFileSize", part.MaxFileSize);
+        }
+
+        protected override void Importing(AvatarsSettingsPart part, ImportContentContext context)
+        {
+            part.AllowedFileTypeWhitelist = context.Attribute(part.PartDefinition.Name, "AllowedFileTypeWhitelist");
+            part.MaxFileSize = int.Parse(context.Attribute(part.PartDefinition.Name, "MaxFileSize"));
         }
     }
 }

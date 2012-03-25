@@ -7,6 +7,7 @@ using Piedone.Avatars.Models;
 using Piedone.Avatars.Services;
 using Piedone.HelpfulLibraries.ServiceValidation.Extensions;
 using System;
+using Orchard.ContentManagement.Handlers;
 
 namespace Piedone.Avatars.Drivers
 {
@@ -56,6 +57,16 @@ namespace Piedone.Avatars.Drivers
             }
 
             return Editor(part, shapeHelper);
+        }
+
+        protected override void Exporting(AvatarProfilePart part, ExportContentContext context)
+        {
+            context.Element(part.PartDefinition.Name).SetAttributeValue("FileExtension", part.FileExtension);
+        }
+
+        protected override void Importing(AvatarProfilePart part, ImportContentContext context)
+        {
+            part.FileExtension = context.Attribute(part.PartDefinition.Name, "FileExtension");
         }
     }
 }
