@@ -39,7 +39,7 @@ namespace Piedone.Avatars.Drivers
         {
             return ContentShape("Parts_AvatarProfile_Edit",
                 () => shapeHelper.EditorTemplate(
-                    TemplateName: "Parts/AvatarProfile",
+                    TemplateName: "Parts.AvatarProfile",
                     Model: part,
                     Prefix: Prefix));
         }
