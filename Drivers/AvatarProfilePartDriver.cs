@@ -66,7 +66,7 @@ namespace Piedone.Avatars.Drivers
 
         protected override void Importing(AvatarProfilePart part, ImportContentContext context)
         {
-            part.FileExtension = context.Attribute(part.PartDefinition.Name, "FileExtension");
+            context.ImportAttribute(part.PartDefinition.Name, "FileExtension", value => part.FileExtension = value);
         }
     }
 }

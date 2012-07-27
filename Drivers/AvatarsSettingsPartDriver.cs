@@ -36,14 +36,18 @@ namespace Piedone.Avatars.Drivers
 
         protected override void Exporting(AvatarsSettingsPart part, ExportContentContext context)
         {
-            context.Element(part.PartDefinition.Name).SetAttributeValue("AllowedFileTypeWhitelist", part.AllowedFileTypeWhitelist);
-            context.Element(part.PartDefinition.Name).SetAttributeValue("MaxFileSize", part.MaxFileSize);
+            var element = context.Element(part.PartDefinition.Name);
+
+            element.SetAttributeValue("AllowedFileTypeWhitelist", part.AllowedFileTypeWhitelist);
+            element.SetAttributeValue("MaxFileSize", part.MaxFileSize);
         }
 
         protected override void Importing(AvatarsSettingsPart part, ImportContentContext context)
         {
-            part.AllowedFileTypeWhitelist = context.Attribute(part.PartDefinition.Name, "AllowedFileTypeWhitelist");
-            part.MaxFileSize = int.Parse(context.Attribute(part.PartDefinition.Name, "MaxFileSize"));
+            var partName = part.PartDefinition.Name;
+
+            context.ImportAttribute(partName, "AllowedFileTypeWhitelist", value => part.AllowedFileTypeWhitelist = value);
+            context.ImportAttribute(partName, "MaxFileSize", value => part.MaxFileSize = int.Parse(value));
         }
     }
 }
