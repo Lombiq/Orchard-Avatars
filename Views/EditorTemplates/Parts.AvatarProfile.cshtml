@@ -24,10 +24,12 @@
 @using (Script.Foot())
 {
     <script type="text/javascript">
-    //<![CDATA[
-        $($("#Avatars_FileUpload")[0].form)
-		    .attr('enctype', 'multipart/form-data')
-		    .attr('encoding', 'multipart/form-data'); // ie issue
-    //]]>
+        (function ($) {
+            $(document).ready(function() {
+                $($("#Avatars_FileUpload")[0].form)
+		            .attr('enctype', 'multipart/form-data')
+		            .attr('encoding', 'multipart/form-data'); // ie issue
+            });
+        })(jQuery);
     </script>
 }
