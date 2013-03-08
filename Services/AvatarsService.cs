@@ -20,10 +20,11 @@ namespace Piedone.Avatars.Services
         private readonly IContentManager _contentManager;
         private readonly ISiteService _siteService;
 
-        private const string AvatarFolderPath = "Avatars";
+        private const string AvatarFolderPath = "Modules/Piedone/Avatars";
 
         public IServiceValidationDictionary<AvatarsServiceValidationKey> ValidationDictionary { get; private set; }
         public Localizer T { get; set; }
+
 
         public AvatarsService(
             IStorageProvider storageProvider,
@@ -38,6 +39,7 @@ namespace Piedone.Avatars.Services
 
             T = NullLocalizer.Instance;
         }
+
 
         public void CreateAvatarsFolder()
         {
