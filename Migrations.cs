@@ -29,13 +29,13 @@ namespace Piedone.Avatars.Migrations
                     .ContentPartRecord()
                     .Column<string>("AllowedFileTypeWhitelist")
                     .Column<int>("MaxFileSize")
-            );
+                );
 
             SchemaBuilder.CreateTable(typeof(AvatarProfilePartRecord).Name, 
                 table => table
                     .ContentPartRecord()
                     .Column<string>("FileExtension")
-            );
+                );
 
             ContentDefinitionManager.AlterTypeDefinition("User",
                 cfg => cfg
