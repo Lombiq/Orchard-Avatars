@@ -4,7 +4,7 @@
     <ol>
         <li>
             @Html.LabelFor(model => model.AllowedFileTypeWhitelist, T("Allowed file types to use as avatars (list of extensions separated by spaces)"))
-            @Html.TextBoxFor(model => model.AllowedFileTypeWhitelist, new { @class = "textMedium" })
+            @Html.TextBoxFor(model => model.AllowedFileTypeWhitelist, new { @class = "text medium" })
             @Html.ValidationMessageFor(model => model.AllowedFileTypeWhitelist)
         </li>
         <li>
