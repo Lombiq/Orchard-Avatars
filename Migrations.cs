@@ -29,13 +29,13 @@ namespace Piedone.Avatars.Migrations
                     .ContentPartRecord()
                     .Column<string>("AllowedFileTypeWhitelist")
                     .Column<int>("MaxFileSize")
-            );
+                );
 
             SchemaBuilder.CreateTable(typeof(AvatarProfilePartRecord).Name, 
                 table => table
                     .ContentPartRecord()
                     .Column<string>("FileExtension")
-            );
+                );
 
             ContentDefinitionManager.AlterTypeDefinition("User",
                 cfg => cfg
@@ -49,7 +49,7 @@ namespace Piedone.Avatars.Migrations
             _avatarsService.CreateAvatarsFolder();
 
 
-            return 3;
+            return 4;
         }
 
         public int UpdateFrom1()
@@ -64,6 +64,8 @@ namespace Piedone.Avatars.Migrations
 
         public int UpdateFrom2()
         {
+            if (!_storageProvider.FolderExists("Avatars")) return 3;
+
             var avatars = _storageProvider.ListFiles("Avatars");
 
             foreach (var file in avatars)
@@ -82,6 +84,30 @@ namespace Piedone.Avatars.Migrations
 
 
             return 3;
+        }
+
+        public int UpdateFrom3()
+        {
+            if (!_storageProvider.FolderExists("Modules/Piedone/Avatars")) return 4;
+
+            var avatars = _storageProvider.ListFiles("Modules/Piedone/Avatars");
+
+            foreach (var file in avatars)
+            {
+                using (var stream = file.OpenRead())
+                {
+                    var copy = _storageProvider.CreateFile("_PiedoneModules/Avatars/" + file.GetName());
+                    using (var copyStream = copy.OpenWrite())
+                    {
+                        stream.CopyTo(copyStream);
+                    }
+                }
+            }
+
+            _storageProvider.DeleteFolder("Modules/Piedone/Avatars");
+
+
+            return 4;
         }
     }
 }

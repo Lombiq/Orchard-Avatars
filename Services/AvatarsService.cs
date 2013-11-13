@@ -20,7 +20,7 @@ namespace Piedone.Avatars.Services
         private readonly IContentManager _contentManager;
         private readonly ISiteService _siteService;
 
-        private const string AvatarFolderPath = "Modules/Piedone/Avatars";
+        private const string AvatarFolderPath = "_PiedoneModules/Avatars";
 
         public IServiceValidationDictionary<AvatarsServiceValidationKey> ValidationDictionary { get; private set; }
         public Localizer T { get; set; }
@@ -69,20 +69,12 @@ namespace Piedone.Avatars.Services
                 return false;
             }
 
-            // This is the way to overwrite a file... We can't check its existence yet with IStorageProvider, but soon there will be such a method.
-            try
-            {
-                _storageProvider.DeleteFile(filePath);
-            }
-            catch (Exception)
-            {
-            }
+            if (_storageProvider.FileExists(filePath)) _storageProvider.DeleteFile(filePath);
 
             _storageProvider.SaveStream(filePath, stream);
 
             var avatar = _contentManager.Get<AvatarProfilePart>(id);
             avatar.FileExtension = extension;
-            _contentManager.Flush();
 
             return true;
         }

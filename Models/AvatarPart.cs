@@ -14,7 +14,7 @@ namespace Piedone.Avatars.Models
         }
 
         private readonly LazyField<string> _imageUrl = new LazyField<string>();
-        public LazyField<string> ImageUrlField { get { return _imageUrl; } }
+        internal LazyField<string> ImageUrlField { get { return _imageUrl; } }
         public string ImageUrl
         {
             get { return _imageUrl.Value; }
