@@ -58,15 +58,5 @@ namespace Piedone.Avatars.Drivers
 
             return Editor(part, shapeHelper);
         }
-
-        protected override void Exporting(AvatarProfilePart part, ExportContentContext context)
-        {
-            context.Element(part.PartDefinition.Name).SetAttributeValue("FileExtension", part.FileExtension);
-        }
-
-        protected override void Importing(AvatarProfilePart part, ImportContentContext context)
-        {
-            context.ImportAttribute(part.PartDefinition.Name, "FileExtension", value => part.FileExtension = value);
-        }
     }
 }

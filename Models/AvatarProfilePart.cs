@@ -15,8 +15,8 @@ namespace Piedone.Avatars.Models
 
         public string FileExtension
         {
-            get { return Record.FileExtension; }
-            set { Record.FileExtension = value; }
+            get { return Retrieve(x => x.FileExtension); }
+            set { Store(x => x.FileExtension, value); }
         }
 
         private readonly LazyField<string> _imageUrl = new LazyField<string>();

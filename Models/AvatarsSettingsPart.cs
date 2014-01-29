@@ -8,8 +8,8 @@ namespace Piedone.Avatars.Models
     {
         public string AllowedFileTypeWhitelist
         {
-            get { return Record.AllowedFileTypeWhitelist; }
-            set { Record.AllowedFileTypeWhitelist = value; }
+            get { return Retrieve(x => x.AllowedFileTypeWhitelist); }
+            set { Store(x => x.AllowedFileTypeWhitelist, value); }
         }
 
         /// <summary>
@@ -17,8 +17,8 @@ namespace Piedone.Avatars.Models
         /// </summary>
         public int MaxFileSize
         {
-            get { return Record.MaxFileSize; }
-            set { Record.MaxFileSize = value; }
+            get { return Retrieve(x => x.MaxFileSize); }
+            set { Store(x => x.MaxFileSize, value); }
         }
     }
 }

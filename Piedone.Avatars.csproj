@@ -94,9 +94,7 @@
       <Name>Piedone.HelpfulLibraries</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Drivers\AvatarProfilePartDriver.cs" />
     <Compile Include="Drivers\AvatarsSettingsPartDriver.cs" />
