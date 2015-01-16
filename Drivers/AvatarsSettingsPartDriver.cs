@@ -33,5 +33,21 @@ namespace Piedone.Avatars.Drivers
             updater.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
         }
+
+        protected override void Exporting(AvatarsSettingsPart part, ExportContentContext context)
+        {
+            var element = context.Element(part.PartDefinition.Name);
+
+            element.SetAttributeValue("AllowedFileTypeWhitelist", part.AllowedFileTypeWhitelist);
+            element.SetAttributeValue("MaxFileSize", part.MaxFileSize);
+        }
+
+        protected override void Importing(AvatarsSettingsPart part, ImportContentContext context)
+        {
+            var partName = part.PartDefinition.Name;
+
+            context.ImportAttribute(partName, "AllowedFileTypeWhitelist", value => part.AllowedFileTypeWhitelist = value);
+            context.ImportAttribute(partName, "MaxFileSize", value => part.MaxFileSize = int.Parse(value));
+        }
     }
 }
