@@ -22,7 +22,7 @@ An Orchard module that brings avatars to the platform
 
 ### First steps
 
-**The module depends on [Helpful Libraries](https://gallery.orchardproject.net/List/Modules/Orchard.Module.Piedone.HelpfulLibraries) and [Profile](https://gallery.orchardproject.net/List/Modules/Orchard.Module.Contrib.Profile). Make sure to install them first!** From Profile use this fork, updated to Orchard 1.8: https://orchardprofile.codeplex.com/SourceControl/network/forks/Piedone/Orchard1xCompatibility
+**The module depends on [Helpful Libraries](https://gallery.orchardproject.net/List/Modules/Orchard.Module.Piedone.HelpfulLibraries) and [Profile](https://orchardprofile.codeplex.com/). Make sure to install them first!** From Profile use this fork, updated to Orchard 1.9: https://bitbucket.org/Lombiq/orchard-contrib-profile
 
 - Avatar settings are added to Settings/Media.
 - There'll be a new content part, AvatarPart. You can attach this part to any content type you wish the avatar to display at. **Please note that AvatarPart can only be attached to types that also have Common part (and therefore an Owner)!**
