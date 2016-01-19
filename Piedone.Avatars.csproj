@@ -14,7 +14,8 @@
     <AssemblyName>Piedone.Avatars</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <FileUpgradeFlags></FileUpgradeFlags>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
     <UpgradeBackupLocation />
     <TargetFrameworkProfile />
@@ -93,7 +94,10 @@
       <Name>Piedone.HelpfulLibraries</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Licence.md" />
+    <Content Include="Readme.md" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Drivers\AvatarProfilePartDriver.cs" />
     <Compile Include="Drivers\AvatarsSettingsPartDriver.cs" />
@@ -160,7 +164,8 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>12373</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl></IISUrl>
+          <IISUrl>
+          </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>True</UseCustomServer>
           <CustomServerUrl>http://orchard.codeplex.com</CustomServerUrl>

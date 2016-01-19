@@ -6,8 +6,8 @@ Version: 0.9.2
 OrchardVersion: 1.9.0
 Description: Avatar images can be added to content types and users can upload avatars
 Features:
-    Piedone.Avatars:
+	Piedone.Avatars:
 		Name: Avatars
-        Description: Avatar images can be added to content types and users can upload avatars
+		Description: Avatar images can be added to content types and users can upload avatars
 		Category: Social
 		Dependencies: Orchard.Users, Piedone.HelpfulLibraries.ServiceValidation, Orchard.jQuery, Contrib.Profile
