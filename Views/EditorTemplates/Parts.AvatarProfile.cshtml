@@ -16,7 +16,7 @@
             </div>
             @Html.Label("FileUpload", T("Upload a new avatar image").ToString())
             <input type="file" name="Avatars_FileUpload" id="Avatars_FileUpload">
-            <span class="hint">@T("If you can't see the new avatar picture after uploading, just refresh the page in your browser.")</span>
+            @Html.Hint(T("If you can't see the new avatar picture after uploading, just refresh the page in your browser."))
         </li>
     </ol>
 </fieldset>
