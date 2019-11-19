@@ -8,6 +8,6 @@
   
   <!--AvatarPart-->
   <Match DisplayType="Detail">
-    <Place Parts_Avatar="Meta:1"/>
+    <Place Parts_Avatar="Header:1"/>
   </Match>
 </Placement>

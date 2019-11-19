@@ -10,4 +10,4 @@ Features:
 		Name: Avatars
 		Description: Avatar images can be added to content types and users can upload avatars
 		Category: Social
-		Dependencies: Orchard.Users, Piedone.HelpfulLibraries.ServiceValidation, Orchard.Resources, Contrib.Profile
+		Dependencies: Orchard.Users, Piedone.HelpfulLibraries.ServiceValidation, Orchard.Resources, Contrib.Profile, Orchard.Comments
