@@ -12,7 +12,7 @@ Features:
 		Category: Social
 		Dependencies: Orchard.Users, Piedone.HelpfulLibraries.ServiceValidation, Orchard.Resources, Contrib.Profile, Orchard.Comments
 	Piedone.Avatars.Blogposts:
-		Name: Blogpost Avatars
+		Name: Blog Post Avatars
 		Description: Adds Avatars to Blog Posts in Detail view.
 		Category: Social 
 		Dependencies: Orchard.Blogs, Piedone.Avatars
