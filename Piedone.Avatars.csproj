@@ -138,7 +138,9 @@
     <Compile Include="Handlers\AvatarProfilePartHandler.cs" />
     <Compile Include="Handlers\AvatarsSettingsPartHandler.cs" />
     <Compile Include="Handlers\AvatarPartHandler.cs" />
-    <Compile Include="Migrations.cs" />
+    <Compile Include="Migrations\BlogpostAvatarsMigrations.cs" />
+    <Compile Include="Migrations\CommentAvatarsMigrations.cs" />
+    <Compile Include="Migrations\Migrations.cs" />
     <Compile Include="Models\AvatarPart.cs" />
     <Compile Include="Models\AvatarProfilePart.cs" />
     <Compile Include="Models\AvatarProfilePartRecord.cs" />

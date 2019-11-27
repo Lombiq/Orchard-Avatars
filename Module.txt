@@ -11,3 +11,13 @@ Features:
 		Description: Avatar images can be added to content types and users can upload avatars
 		Category: Social
 		Dependencies: Orchard.Users, Piedone.HelpfulLibraries.ServiceValidation, Orchard.Resources, Contrib.Profile, Orchard.Comments
+	Piedone.Avatars.Blogposts:
+		Name: Blogpost Avatars
+		Description: Adds Avatars to Blog Posts in Detail view.
+		Category: Social 
+		Dependencies: Orchard.Blogs, Piedone.Avatars
+	Piedone.Avatars.Comments:
+		Name: Comment Avatars
+		Description: Adds Avatars to comments from logged in users.
+		Category: Social
+		Dependencies: Orchard.Comments, Piedone.Avatars

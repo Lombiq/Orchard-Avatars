@@ -24,7 +24,7 @@
 
     var currentUser = WorkContext.CurrentUser;
 
-    if (currentUser != null) 
+    if (currentUser != null && comment.Has<AvatarPart>()) 
     {
         @Display.Parts_Avatar(ContentPart: comment.As<AvatarPart>(), UserName: comment.As<CommonPart>().Owner.UserName)
     }
