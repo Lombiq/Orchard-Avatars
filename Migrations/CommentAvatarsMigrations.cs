@@ -4,7 +4,7 @@ using Orchard.Environment.Extensions;
 
 namespace Piedone.Avatars.Migrations
 {
-    [OrchardFeature("Piedone.Avatars.Comments")]
+    [OrchardFeature("Piedone.Avatars.Comment")]
     public class CommentAvatarsMigrations : DataMigrationImpl
     {
 
