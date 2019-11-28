@@ -14,9 +14,6 @@ An Orchard module that brings avatars to the platform
 - AvatarPart to show avatars with any content type
 - Configuration to make constraints on uploadable images
 - Import/export settings
-- **Blog Post Avatars** feature shows the avatars of Blog Post authors when viewed in Detail view (requires images of 1:1 ratio for proper functionality).
-- **Comment Avatars** feature shows the avatars of logged in commenters next to their comments (requires images of 1:1 ratio for proper functionality).
-
 
 ## Documentation
 
