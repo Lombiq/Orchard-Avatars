@@ -4,7 +4,6 @@
 @using Orchard.Core.Common.Models
 @using Piedone.Avatars.Models
 
-
 @{
     CommentPart comment = Model.ContentPart;
     CommentsPart comments = comment.CommentedOnContentItem.As<CommentsPart>();
@@ -33,6 +32,7 @@
 @tag.StartElement
     <header>
         <h4>
+            @Display(Model.Meta)
             <span class="who">@Display.CommentAuthor(ContentPart: comment)</span>
             <span class="when">@Display.CommentMetadata(ContentPart: comment)</span>
             @if (comments.ThreadedComments && comments.CommentsActive && isAuthorized) {
