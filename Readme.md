@@ -15,6 +15,7 @@ An Orchard module that brings avatars to the platform
 - Configuration to make constraints on uploadable images
 - Import/export settings
 
+
 ## Documentation
 
 **This module needs at least Orchard 1.8!**

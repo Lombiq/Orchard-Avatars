@@ -2,20 +2,20 @@
 using Orchard.Core.Contents.Extensions;
 using Orchard.Data.Migration;
 using Orchard.Environment.Extensions;
+using Piedone.Avatars.Models;
 
 namespace Piedone.Avatars.Migrations
 {
     [OrchardFeature("Piedone.Avatars.Blogpost")]
     public class BlogpostAvatarsMigrations : DataMigrationImpl
     {
-
         public int Create()
         {
             ContentDefinitionManager.AlterTypeDefinition("BlogPost",
                 cfg => cfg
-                    .WithPart("AvatarPart"));
+                    .WithPart(nameof(AvatarPart)));
 
-            ContentDefinitionManager.AlterPartDefinition("AvatarPart",
+            ContentDefinitionManager.AlterPartDefinition(nameof(AvatarPart),
                 builder => builder
                     .WithDescription("Adds Avatars to Blog Posts in Detail view."));
 
