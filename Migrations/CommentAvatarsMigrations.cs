@@ -21,6 +21,5 @@ namespace Piedone.Avatars.Migrations
 
             return 1;
         }
-
     }
 }
