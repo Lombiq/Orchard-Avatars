@@ -12,7 +12,8 @@
     var children = New.List(Items: Model.Items);
     children.Classes.Add("comments");
 
-    if (Model.Items.Count > 0) {
+    if (Model.Items.Count > 0)
+    {
         Model.Classes.Add("has-replies");
     }
 
@@ -23,7 +24,7 @@
 
     var currentUser = WorkContext.CurrentUser;
 
-    if (currentUser != null && comment.Has<AvatarPart>()) 
+    if (currentUser != null && comment.Has<AvatarPart>())
     {
         @Display.Parts_Avatar(ContentPart: comment.As<AvatarPart>(), UserName: comment.As<CommonPart>().Owner.UserName)
     }
@@ -35,7 +36,8 @@
             @Display(Model.Meta)
             <span class="who">@Display.CommentAuthor(ContentPart: comment)</span>
             <span class="when">@Display.CommentMetadata(ContentPart: comment)</span>
-            @if (comments.ThreadedComments && comments.CommentsActive && isAuthorized) {
+            @if (comments.ThreadedComments && comments.CommentsActive && isAuthorized)
+            {
                 @Display.CommentReplyButton(ContentPart: comment)
             }
         </h4>
