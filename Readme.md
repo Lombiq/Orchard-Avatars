@@ -26,7 +26,7 @@ An Orchard module that brings avatars to the platform
 
 - Avatar settings are added to Settings/Media.
 - There'll be a new content part, AvatarPart. You can attach this part to any content type you wish the avatar to display at. **Please note that AvatarPart can only be attached to types that also have Common part (and therefore an Owner)!**
-- Users can upload their own avatar on their profile page. Please refer to the documentation of the [Profile](http://orchardprofile.codeplex.com/) module how it works and how you can display a link to the profiles and the profile editor page.
+- Users can upload their own avatar on their profile page. Please refer to the documentation of the [Profile](http://orchardprofile.codeplex.com/) module how it works and how you can display a link to the profiles and the profile editor page. But in short you can open your own profile under */Profile/Edit* and another users' under */profile/UserName*.
 - The module overrides some shapes to integrate the functionality the Profile module provides. - The User shape, where the "Welcome, <UserName>" and the logout link is displayed is enhanced with a link to the profile editing page. Parts_Common_Metadata and Parts_Common_Metadata_Summary contain a link to the author's profile.
 
 **[Version History](Docs/VersionHistory.md)**

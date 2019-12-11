@@ -24,14 +24,14 @@ namespace Piedone.Avatars.Migrations
 
         public int Create()
         {
-            SchemaBuilder.CreateTable(typeof(AvatarsSettingsPartRecord).Name, 
+            SchemaBuilder.CreateTable(typeof(AvatarsSettingsPartRecord).Name,
                 table => table
                     .ContentPartRecord()
                     .Column<string>("AllowedFileTypeWhitelist")
                     .Column<int>("MaxFileSize")
                 );
 
-            SchemaBuilder.CreateTable(typeof(AvatarProfilePartRecord).Name, 
+            SchemaBuilder.CreateTable(typeof(AvatarProfilePartRecord).Name,
                 table => table
                     .ContentPartRecord()
                     .Column<string>("FileExtension")
