@@ -6,7 +6,7 @@ using Piedone.Avatars.Models;
 
 namespace Piedone.Avatars.Migrations
 {
-    [OrchardFeature("Piedone.Avatars.Comment")]
+    [OrchardFeature("Piedone.Avatars.Comments")]
     public class CommentAvatarsMigrations : DataMigrationImpl
     {
         public int Create()

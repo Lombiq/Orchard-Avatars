@@ -6,7 +6,7 @@ using Piedone.Avatars.Models;
 
 namespace Piedone.Avatars.Migrations
 {
-    [OrchardFeature("Piedone.Avatars.Blogpost")]
+    [OrchardFeature("Piedone.Avatars.Blogs")]
     public class BlogpostAvatarsMigrations : DataMigrationImpl
     {
         public int Create()
